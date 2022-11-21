@@ -1,0 +1,35 @@
+@mixin pos($top, $lef, $rig) {
+    top: $top;
+    left: $lef;
+    right: $rig;
+}
+@mixin dimension($wit, $heig){
+    width: $wit;
+    height: $heig;
+}
+h2{
+    position: relative;
+    font-size: 5vw;
+    color: #252839;
+    -webkit-text-stroke: 0.3vw #383d52;
+    text-transform: uppercase;
+
+    &::before{
+        content: attr(data-text);
+        position: absolute;
+        @include pos(0,0 ,0 );
+        @include dimension(0, 100% );
+        color: #febb01;
+        -webkit-text-stroke: 0vw #383d52;
+        overflow: hidden;
+        animation: animate 5s linear infinite;
+    }
+}
+@keyframes animate{
+    0%,10%,100%{
+        width:0%;
+    }
+    60%{
+        width:100%;
+    }
+}
